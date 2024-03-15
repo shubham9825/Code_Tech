@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class IntroActivity : AppCompatActivity() {
-    private val SPLASH_TIME_OUT: Long = 300000 // 3 seconds
+    private val SPLASH_TIME_OUT: Long = 2000 // 2 seconds
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

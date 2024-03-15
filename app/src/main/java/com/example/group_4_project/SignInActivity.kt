@@ -17,7 +17,7 @@ class SignInActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signin) // Set the layout without View Binding
+        setContentView(R.layout.activity_signin)
 
          firebaseAuth = FirebaseAuth.getInstance()
          emailEditText = findViewById(R.id.txtEmail) // Find email EditText by ID
@@ -29,6 +29,7 @@ class SignInActivity: AppCompatActivity() {
             startActivity(intent)
         }
 
+//        Validation
         val signInButton = findViewById<Button>(R.id.btnSignUp)
         signInButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -54,8 +55,8 @@ class SignInActivity: AppCompatActivity() {
                 // Sign in with email and password
                 firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        // Sign-in successful, navigate to MainActivity
-                        val intent = Intent(this, MainActivity::class.java)
+                        // Sign-in successful
+                        val intent = Intent(this, IntroActivity::class.java)
                         startActivity(intent)
                     } else {
                         // Sign-in failed, display error message
@@ -69,9 +70,9 @@ class SignInActivity: AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        // Check if user is already signed in, if yes, navigate to MainActivity
+        // Check if user is already signed in, if yes, navigate to IntroActivity
         if(firebaseAuth.currentUser != null){
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, IntroActivity::class.java)
             startActivity(intent)
         }
     }

@@ -29,7 +29,5 @@ class CandidateActivity : AppCompatActivity() {
     }
 
     private fun updateUI(candidate: Candidate?) {
-        // Update UI elements with candidate data
-        // Example: textViewName.text = candidate?.name
     }
 }
