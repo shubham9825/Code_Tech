@@ -28,7 +28,7 @@ class CustomAdapter(private val dataList: List<Candidate>) :
         holder.name.text = candidate.name
         holder.title.text = candidate.title
 
-        // Using Glide to load the image
+        // Load the image using glide
         Glide.with(holder.photo.context).load(candidate.photoUrl).into(holder.photo)
     }
 

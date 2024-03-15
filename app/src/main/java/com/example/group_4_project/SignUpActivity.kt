@@ -22,7 +22,7 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signup) // Set the layout without View Binding
+        setContentView(R.layout.activity_signup)
 
         firebaseAuth = FirebaseAuth.getInstance()
         emailEditText = findViewById(R.id.txtEmail)  // Find email EditText by ID
@@ -35,6 +35,7 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+//     Validation
         signUpButton = findViewById(R.id.btnSignUp)
         signUpButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -77,9 +78,9 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        //   Check if user is already signed in, if yes, navigate to MainActivity
+        //   Check if user is already signed in, if yes, navigate to IntroActivity
         if (firebaseAuth.currentUser != null) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, IntroActivity::class.java)
             startActivity(intent)
         }
     }
