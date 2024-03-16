@@ -1,78 +1,334 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar_main"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="Home"
-            app:titleTextColor="@android:color/white"
-            app:elevation="4dp">
-
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/search_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </com.google.android.material.appbar.MaterialToolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
     <!-- Placeholder for user profile or additional content -->
-    <FrameLayout
-        android:id="@+id/profile_placeholder"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:background="?attr/colorPrimaryVariant">
-        <!-- Include user profile content here -->
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp" />
+        android:layout_height="match_parent" >
 
-    </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/home_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="100dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_view"
-        app:layout_constraintTop_toBottomOf="@id/profile_placeholder" />
+            <FrameLayout
+                android:id="@+id/profile_placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/yellow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_navigate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/add_new"
-        android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+                <ImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="359dp"
+                    android:layout_height="87dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/homelogo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </FrameLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/OracleCardView"
+                android:layout_width="382dp"
+                android:layout_height="272dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.551"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.882">
+
+                <TextView
+                    android:id="@+id/textViewOracle"
+                    android:layout_width="107dp"
+                    android:layout_height="39dp"
+                    android:text="Oracle"
+                    android:textAlignment="center"
+                    android:textColor="#050505"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/textViewOracle1"
+                    android:layout_width="125dp"
+                    android:layout_height="131dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="25.5dp"
+                    android:text="Patrick Dang is an international sales trainer. Patrick has shared a Video 'Why I started working at Oracle' "
+                    android:textColor="#2B2D30"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewOracle2"
+                    android:layout_width="371dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="160.5dp"
+                    android:text="After gaining experience in both the enterprise and startup world, Patrick began sharing his knowledge of modern sales students worldwide.Since then,
+            Patrick has trained over 70,000 students across 150 countries on topics on how to start a career in sales,business development,lead generation, etc."
+                    android:textColor="#2B2D30"
+                    android:textSize="15sp" />
+
+                <VideoView
+                    android:id="@+id/oraclevideoView"
+                    android:layout_width="230dp"
+                    android:layout_height="133dp"
+                    android:layout_marginLeft="130dp"
+                    android:layout_marginTop="25.5dp" />
+                <!--            VidoeLink/>-->
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CentificCardView"
+                android:layout_width="382dp"
+                android:layout_height="272dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.551"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.882">
+
+                <TextView
+                    android:id="@+id/CentifictextView"
+                    android:layout_width="107dp"
+                    android:layout_height="39dp"
+                    android:text="Centific"
+                    android:textAlignment="center"
+                    android:textColor="#050505"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/textViewCentific1"
+                    android:layout_width="361dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="25.5dp"
+                    android:text="Centific brings together data, intelligence and experiences to deliver human-centric solutions to complex business challenges. "
+                    android:textColor="#2B2D30"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textViewJob1"
+                    android:layout_width="361dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="90.5dp"
+                    android:text="Project UHRS (English speakers)."
+                    android:textAlignment="center"
+                    android:textColor="#2B2D30"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/textViewRespon1"
+                    android:layout_width="361dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="110dp"
+                    android:text="Your Responsibilities Will Include :"
+                    android:textColor="#2B2D30"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/textViewCentific2"
+                    android:layout_width="361dp"
+                    android:layout_height="132dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="130dp"
+                    android:text="You will work directly on the platform of a global leading AI developer.You will have access to new jobs, local search relevance and image labelling. Quick onboarding, with tons of easy tasks. You don’t need a specific skillset or certification. It’s a simple plug and play. You will have new jobs to choose from on top of regular OneForma work."
+                    android:textColor="#2B2D30"
+                    android:textSize="15sp" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/GoogleCardView"
+                android:layout_width="382dp"
+                android:layout_height="272dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.482"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/profile_placeholder"
+                app:layout_constraintVertical_bias="0.257">
+
+                <TextView
+                    android:id="@+id/GoogletextView"
+                    android:layout_width="107dp"
+                    android:layout_height="39dp"
+                    android:text="Google"
+                    android:textAlignment="center"
+                    android:textColor="#050505"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+                <ImageView
+                    android:id="@+id/googleimageView"
+                    android:layout_width="230dp"
+                    android:layout_height="133dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="25.5dp"
+                    android:src="@drawable/google" />
+
+                <TextView
+                    android:id="@+id/GoogletextView1"
+                    android:layout_width="125dp"
+                    android:layout_height="131dp"
+                    android:layout_marginLeft="249dp"
+                    android:layout_marginTop="25.5dp"
+                    android:text="Last month, we hosted our 3rd annual Google HBCU Hackathon, where more than 80 students from four historically"
+                    android:textColor="#2B2D30"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/GoogletextView2"
+                    android:layout_width="370dp"
+                    android:layout_height="105dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="160.5dp"
+                    android:text="Black colleges and universities (HBCUs) competed.“The feedback and insights gained from these industry experts were priceless, fueling our passion to continuously innovate and grow,” explained Collin, an attendee and current student at Morgan State University."
+                    android:textColor="#2B2D30"
+                    android:textSize="15sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/SegmedIncCardView"
+                android:layout_width="382dp"
+                android:layout_height="272dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.482"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/profile_placeholder"
+                app:layout_constraintVertical_bias="0.257">
+
+                <TextView
+                    android:id="@+id/segmedtextView"
+                    android:layout_width="149dp"
+                    android:layout_height="wrap_content"
+                    android:text="Segmed Inc."
+                    android:textAlignment="center"
+                    android:textColor="#050505"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+                <ImageView
+                    android:id="@+id/segmedimageView"
+                    android:layout_width="230dp"
+                    android:layout_height="133dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="25.5dp"
+                    android:src="@drawable/segmed" />
+
+                <TextView
+                    android:id="@+id/segmedtextView1"
+                    android:layout_width="125dp"
+                    android:layout_height="131dp"
+                    android:layout_marginLeft="249dp"
+                    android:layout_marginTop="25.5dp"
+                    android:text="The fastest way to acquire medical data."
+                    android:textAlignment="center"
+                    android:textColor="#2B2D30"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/segmedtextView2"
+                    android:layout_width="370dp"
+                    android:layout_height="105dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="160.5dp"
+                    android:text="Big news! Segmed, Inc. is delighted to have received recognition as a leader in the AI and Data category with our Insight platform. The 2024 Product Awards, presented by Products That Count in collaboration with Mighty Capital and Capgemini, commend the top tools that empower Product Managers in crafting exceptional products."
+                    android:textAlignment="textStart"
+                    android:textColor="#2B2D30"
+                    android:textSize="15sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/walmartCardView"
+                android:layout_width="382dp"
+                android:layout_height="272dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.482"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/profile_placeholder"
+                app:layout_constraintVertical_bias="0.257">
+
+                <TextView
+                    android:id="@+id/walmarttextView"
+                    android:layout_width="149dp"
+                    android:layout_height="wrap_content"
+                    android:text="Walmart Canada"
+                    android:textAlignment="center"
+                    android:textColor="#050505"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+                <ImageView
+                    android:id="@+id/walmartimageView"
+                    android:layout_width="230dp"
+                    android:layout_height="133dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="25.5dp"
+                    android:src="@drawable/walmart" />
+
+                <TextView
+                    android:id="@+id/walmarttextView1"
+                    android:layout_width="125dp"
+                    android:layout_height="131dp"
+                    android:layout_marginLeft="249dp"
+                    android:layout_marginTop="25.5dp"
+                    android:text="(CAN) Cashier / Customer Experience Associate"
+                    android:textAlignment="center"
+                    android:textColor="#2B2D30"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/walmarttextView2"
+                    android:layout_width="370dp"
+                    android:layout_height="105dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="160.5dp"
+                    android:text="What you'll do...Our Customer Experience associates interact with every single one of our customers, acting as the warm smile and the helping hand that we pride ourselves on being."
+                    android:textAlignment="textStart"
+                    android:textColor="#2B2D30"
+                    android:textSize="15sp" />
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.992"
         app:menu="@menu/bottom_navigation_menu" />
 
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+

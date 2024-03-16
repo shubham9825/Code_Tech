@@ -23,38 +23,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Setup Toolbar
-        val toolbar: MaterialToolbar = findViewById(R.id.toolbar_main)
-        setSupportActionBar(toolbar)
 
-        // RecyclerView setup
-        recyclerView = findViewById(R.id.home_recyclerview)
-        adapter = CustomAdapter(listOf())
-        recyclerView.adapter = adapter
-        auth = FirebaseAuth.getInstance()
-        fetchFeed()
+        fun fetchFeed() {
 
-
-        findViewById<FloatingActionButton>(R.id.fab_navigate).setOnClickListener {
-
-            startActivity(Intent(this, CandidateActivity::class.java))
         }
-
-        logoutButton = findViewById(R.id.btnLogout);
-        logoutButton.setOnClickListener {
-            signOut()
-        }
-
-    }
-
-    private fun signOut() {
-        auth.signOut()
-        Toast.makeText(this@MainActivity, "Logged out successfully", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this, SignInActivity::class.java)
-        startActivity(intent)
-     }
-
-    private fun fetchFeed() {
-
     }
 }
