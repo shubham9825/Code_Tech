@@ -7,22 +7,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class CandidateActivity : AppCompatActivity() {
-    private val Candidate = listOf(
-        Candidate("Jon", "jon@jon.com", "Professor at Conestoga"),
-        Candidate("Steve", "sjobs@apple.com", "Cofounder of Apple"),
-        Candidate("Sandeep", "sandeep@sandy.com", "Programmer"),
-        Candidate("Jon", "jon@jon.com", "Professor at Conestoga"),
-        Candidate("Steve", "sjobs@apple.com", "Cofounder of Apple"),
-        Candidate("Sandeep", "sandeep@sandy.com", "Programmer"),
-        Candidate("Jon", "jon@jon.com", "Professor at Conestoga"),
-        Candidate("Steve", "sjobs@apple.com", "Cofounder of Apple"),
-        Candidate("Sandeep", "sandeep@sandy.com", "Programmer")
-    )
+
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var logoutButton: Button
     private lateinit var auth: FirebaseAuth
@@ -35,14 +26,10 @@ class CandidateActivity : AppCompatActivity() {
         setContentView(R.layout.activity_candidate)
 
         auth = FirebaseAuth.getInstance()
-        var database = FirebaseDatabase.getInstance().reference.child("candidates")
 
-//        val myRef = FirebaseDatabase.getInstance().reference.child("candidates")
-//        val options = FirebaseRecyclerOptions.Builder<Candidate>().setQuery(query, Candidate::class.java).build()
-
-//        val query = FirebaseDatabase.getInstance().reference.child("phones")
-//        val options = FirebaseRecyclerOptions.Builder<Candidate>().setQuery(query, Candidate::class.java).build()
-//        adapter = CandidateAdapter(options)
+        val query = FirebaseDatabase.getInstance().reference.child("candidates")
+        val options = FirebaseRecyclerOptions.Builder<Candidate>().setQuery(query, Candidate::class.java).build()
+        adapter = CandidateAdapter(options)
 
         rView = findViewById(R.id.rView)
         rView?.layoutManager = LinearLayoutManager(this, )
@@ -69,20 +56,12 @@ class CandidateActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
-        val recyclerView: RecyclerView = findViewById(R.id.rView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        val adapter = CandidateAdapter(Candidate)
-        recyclerView.adapter = adapter
-
-
     }
 
-    class FirebaseRecyclerOptions {
-
+    override fun onStart() {
+        super.onStart()
+        adapter?.startListening()
     }
-
     private fun signOut() {
         auth.signOut()
         Toast.makeText(this@CandidateActivity, "Logged out successfully", Toast.LENGTH_SHORT).show()

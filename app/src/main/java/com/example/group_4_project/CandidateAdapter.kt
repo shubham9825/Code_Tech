@@ -1,35 +1,36 @@
 package com.example.group_4_project
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.firebase.ui.database.FirebaseRecyclerAdapter
+import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
-class CandidateAdapter(public val list: List<Candidate>) :
-    RecyclerView.Adapter<CandidateAdapter.CandidateHolder>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CandidateHolder {
+class CandidateAdapter(options: FirebaseRecyclerOptions<Candidate>) :
+    FirebaseRecyclerAdapter<Candidate, CandidateAdapter.MyViewHolder>(options) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return CandidateHolder(inflater, parent)
+        return MyViewHolder(inflater, parent)
     }
 
-    override fun getItemCount(): Int = list.size
-    override fun onBindViewHolder(holder: CandidateHolder, position: Int) {
-        val candidate: Candidate = list[position]
-        holder.txtName.text = candidate.name
-        holder.txtRole.text = candidate.role
-        holder.itemView.setOnClickListener {
-            val i = Intent(it.context, DetailActivity::class.java)
-            i.putExtra("name", candidate.name)
-            i.putExtra("role", candidate.role)
-            it.context.startActivity(i)
-        }
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int, model: Candidate) {
+        holder.txtName.text = model.name
+        holder.txtRole.text = model.role
+        val storRef: StorageReference =
+            FirebaseStorage.getInstance().getReferenceFromUrl(model.image_url)
+        Glide.with(holder.imgCandidate.context).load(storRef).into(holder.imgCandidate)
     }
 
-    class CandidateHolder(inflater: LayoutInflater, parent: ViewGroup) :
-        RecyclerView.ViewHolder(inflater.inflate(R.layout.item_view, parent, false)) {
-
+    class MyViewHolder(inflater: LayoutInflater, parent: ViewGroup) : RecyclerView.ViewHolder(
+        inflater.inflate(R.layout.item_view, parent, false)
+    ) {
         val txtName: TextView = itemView.findViewById(R.id.txtName)
         val txtRole: TextView = itemView.findViewById(R.id.txtRole)
+        val imgCandidate: ImageView = itemView.findViewById(R.id.imgCandidate)
     }
 }
