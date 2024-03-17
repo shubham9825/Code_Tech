@@ -1,7 +1,4 @@
 package com.example.group_4_project
 
-data class Candidate(
-    val name: String,
-    val title: String,
-    val photoUrl: String
-)
+
+data class Candidate (var name: String ="", var role:String ="", var image_url:String="")

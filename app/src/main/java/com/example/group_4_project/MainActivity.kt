@@ -13,14 +13,9 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivity : AppCompatActivity() {
-
-
-
-
-
     //  binding data to the RecyclerView
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: CustomAdapter
+    private lateinit var adapter: CandidateAdapter
     private lateinit var logoutButton: Button
     private lateinit var auth: FirebaseAuth
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -33,19 +28,6 @@ class MainActivity : AppCompatActivity() {
         val toolbar: MaterialToolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
 
-        // RecyclerView setup
-        recyclerView = findViewById(R.id.home_recyclerview)
-        adapter = CustomAdapter(listOf())
-        recyclerView.adapter = adapter
-        auth = FirebaseAuth.getInstance()
-        fetchFeed()
-
-
-        findViewById<FloatingActionButton>(R.id.fab_navigate).setOnClickListener {
-
-            startActivity(Intent(this, CandidateActivity::class.java))
-        }
-
         logoutButton = findViewById(R.id.btnLogout);
         logoutButton.setOnClickListener {
             signOut()
@@ -55,24 +37,19 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.navigation_home -> {
-
-                    startActivity(Intent(this, IntroActivity::class.java))
-                    true
-                }
                 R.id.navigation_dashboard -> {
-
                     startActivity(Intent(this, DashboardActivity::class.java))
                     true
                 }
-                R.id.navigation_notifications -> {
 
-                    startActivity(Intent(this, IntroActivity::class.java))
+                R.id.navigation_candidate -> {
+                    startActivity(Intent(this, CandidateActivity::class.java))
                     true
                 }
                 else -> false
             }
         }
+        startActivity(Intent(this, DashboardActivity::class.java))
     }
 
     private fun signOut() {
@@ -81,8 +58,4 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, SignInActivity::class.java)
         startActivity(intent)
      }
-
-    private fun fetchFeed() {
-
-    }
 }

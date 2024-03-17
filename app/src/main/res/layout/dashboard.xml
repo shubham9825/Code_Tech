@@ -9,22 +9,31 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar_main"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="Home"
-            app:titleTextColor="@android:color/white"
-            app:elevation="4dp">
+            android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/search_view"
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_main"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/yellow"
+                app:elevation="4dp" />
 
-        </com.google.android.material.appbar.MaterialToolbar>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:text="Logout"
+                android:textColor="@color/white"
+                app:backgroundTint="#454545" />
+        </RelativeLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -36,9 +45,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@android:color/white"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@android:color/white">
+            android:padding="16dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -58,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:text="Infosys"
                         android:textSize="18sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/companyName12"
@@ -66,24 +75,24 @@
                         android:layout_height="wrap_content"
                         android:text="Infosys"
                         android:textSize="18sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/jobTitle1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Java Developer"
-                        android:textSize="16sp"
                         android:textColor="@android:color/black"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/description1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Strong grasp of design principles, performance engineering, quality processes, and estimation techniques, coupled with proficient coding skills, test case creation, SDLC knowledge, and awareness of emerging technologies, demonstrating logical problem-solving and collaborative abilities."
-                        android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="14sp" />
 
                     <ImageView
                         android:id="@+id/companyImage1"
@@ -94,7 +103,6 @@
                         android:src="@drawable/infosys" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
 
 
             <androidx.cardview.widget.CardView
@@ -116,24 +124,24 @@
                         android:layout_height="wrap_content"
                         android:text="Accenture"
                         android:textSize="18sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/jobTitle2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Application Developer"
-                        android:textSize="16sp"
                         android:textColor="@android:color/black"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/description2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Supporting Japanese users via email, participating in meetings, performing routine and requested tasks, monitoring systems, collaborating with cross-functional teams, and maintaining technical documentation."
-                        android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="14sp" />
 
                     <ImageView
                         android:id="@+id/companyImage2"
@@ -144,8 +152,6 @@
                         android:src="@drawable/accenture" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-
 
 
             <androidx.cardview.widget.CardView
@@ -161,31 +167,30 @@
                     android:padding="16dp">
 
 
-
                     <TextView
                         android:id="@+id/companyName3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="ClearTrip"
                         android:textSize="18sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/jobTitle3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Category Manager"
-                        android:textSize="16sp"
                         android:textColor="@android:color/black"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/description3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Drive revenue optimization through robust strategies, pricing models, demand forecasting, performance analysis, strategic partnerships, and effective team leadership within the B2B Air segment."
-                        android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="14sp" />
 
                     <ImageView
                         android:id="@+id/companyImage3"
@@ -196,7 +201,6 @@
                         android:src="@drawable/cleartrip" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
 
 
             <androidx.cardview.widget.CardView
@@ -217,25 +221,25 @@
                         android:layout_height="wrap_content"
                         android:text="JIO"
                         android:textSize="18sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
 
                     <TextView
                         android:id="@+id/jobTitle4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Cyber Security Specialist"
-                        android:textSize="16sp"
                         android:textColor="@android:color/black"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/description4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Proficient in ITSM incident, service request, and change task management, providing CyberArk PIM support within SLA, Linux and Windows administration, incident/ticketing tools, LDAP concepts, CyberArk Rest APIs, platform and safe management, DR management, runbook creation, and architecture diagrams."
-                        android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="14sp" />
 
                     <ImageView
                         android:id="@+id/companyImage4"
@@ -246,7 +250,6 @@
                         android:src="@drawable/jio" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
 
 
             <androidx.cardview.widget.CardView
@@ -262,31 +265,30 @@
                     android:padding="16dp">
 
 
-
                     <TextView
                         android:id="@+id/companyName5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Thomson Reuters"
                         android:textSize="18sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/jobTitle5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Software Engineer"
-                        android:textSize="16sp"
                         android:textColor="@android:color/black"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/description5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Demonstrates proficiency in C++, holds a bachelor's degree, aligns software development with product strategy, addresses objections effectively, fosters inclusive team communication, identifies process improvements, communicates clearly across mediums, actively engages in meetings and agile processes, and shows resilience in learning and adapting."
-                        android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="14sp" />
 
                     <ImageView
                         android:id="@+id/companyImage5"
@@ -297,7 +299,6 @@
                         android:src="@drawable/thomsonreuters" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
 
 
             <androidx.cardview.widget.CardView
@@ -319,24 +320,24 @@
                         android:layout_height="wrap_content"
                         android:text="The Souled Store"
                         android:textSize="18sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/jobTitle6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Associate-Brand Designer"
-                        android:textSize="16sp"
                         android:textColor="@android:color/black"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/description6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Bachelor's degree in Graphic Design or related field with 1-2 years of Brand Designer experience, demonstrating strong ideation skills, understanding of branding principles, excellent communication, collaboration abilities, and adeptness in managing multiple projects with deadlines"
-                        android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="14sp" />
 
                     <ImageView
                         android:id="@+id/companyImage6"
@@ -347,7 +348,6 @@
                         android:src="@drawable/thesouledstore" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
 
 
             <androidx.cardview.widget.CardView
@@ -363,31 +363,30 @@
                     android:padding="16dp">
 
 
-
                     <TextView
                         android:id="@+id/companyName7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Adani"
                         android:textSize="18sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/jobTitle7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Team Member R2R"
-                        android:textSize="16sp"
                         android:textColor="@android:color/black"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/description7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Align financial activities with business objectives, ensuring timely closure of books, XBRL filings, ad-hoc data support, audit schedule preparation, and UAT for new projects/robotics."
-                        android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="14sp" />
 
                     <ImageView
                         android:id="@+id/companyImage7"
