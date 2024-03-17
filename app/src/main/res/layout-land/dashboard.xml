@@ -91,7 +91,7 @@
                         android:layout_height="250dp"
                         android:layout_marginTop="16dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/Infosys" />
+                        android:src="@drawable/infosys" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -141,7 +141,7 @@
                         android:layout_height="250dp"
                         android:layout_marginTop="16dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/Accenture" />
+                        android:src="@drawable/accenture" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -219,7 +219,6 @@
                         android:textSize="18sp"
                         android:textStyle="bold"/>
 
-
                     <TextView
                         android:id="@+id/jobTitle4"
                         android:layout_width="match_parent"
@@ -243,7 +242,7 @@
                         android:layout_height="250dp"
                         android:layout_marginTop="16dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/JIO" />
+                        android:src="@drawable/jio" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -294,7 +293,7 @@
                         android:layout_height="250dp"
                         android:layout_marginTop="16dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/ThomsonReuters" />
+                        android:src="@drawable/thomsonreuters" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -344,7 +343,7 @@
                         android:layout_height="250dp"
                         android:layout_marginTop="16dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/TheSouledStore" />
+                        android:src="@drawable/thesouledstore" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -398,8 +397,6 @@
                         android:src="@drawable/adani" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-
         </LinearLayout>
     </ScrollView>
 
