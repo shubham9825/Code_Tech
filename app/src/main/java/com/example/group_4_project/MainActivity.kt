@@ -7,17 +7,23 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivity : AppCompatActivity() {
 
+
+
+
+
     //  binding data to the RecyclerView
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CustomAdapter
     private lateinit var logoutButton: Button
     private lateinit var auth: FirebaseAuth
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +51,28 @@ class MainActivity : AppCompatActivity() {
             signOut()
         }
 
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.navigation_home -> {
+
+                    startActivity(Intent(this, IntroActivity::class.java))
+                    true
+                }
+                R.id.navigation_dashboard -> {
+
+                    startActivity(Intent(this, DashboardActivity::class.java))
+                    true
+                }
+                R.id.navigation_notifications -> {
+
+                    startActivity(Intent(this, IntroActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     private fun signOut() {
