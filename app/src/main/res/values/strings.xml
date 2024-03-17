@@ -5,7 +5,7 @@
     <string name="add_new" />
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_candidate">Candidate</string>
 
     <string name="app_name">LoginAndSignUp</string>
 </resources>

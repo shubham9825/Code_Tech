@@ -72,7 +72,7 @@ class SignInActivity: AppCompatActivity() {
 
         // Check if user is already signed in, if yes, navigate to IntroActivity
         if(firebaseAuth.currentUser != null){
-            val intent = Intent(this, IntroActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
