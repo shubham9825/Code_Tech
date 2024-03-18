@@ -18,15 +18,14 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var signUpTextView: TextView
     private lateinit var signUpButton: Button
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        emailEditText = findViewById(R.id.txtEmail)  // Find email EditText by ID
+        emailEditText = findViewById(R.id.txtEmail)
         passEditText = findViewById(R.id.txtPassword)
-        confirmEditText = findViewById(R.id.txtCpassword) // Find password EditText by ID
+        confirmEditText = findViewById(R.id.txtCpassword)
         signUpTextView = findViewById(R.id.txtSignIn)
 
         signUpTextView.setOnClickListener {
@@ -77,7 +76,7 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        //   Check if user is already signed in, if yes, navigate to IntroActivity
+        //   if already sign in redirect to intro activity
         if (firebaseAuth.currentUser != null) {
             val intent = Intent(this, IntroActivity::class.java)
             startActivity(intent)

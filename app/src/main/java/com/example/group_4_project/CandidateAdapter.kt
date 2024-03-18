@@ -24,6 +24,7 @@ class CandidateAdapter(options: FirebaseRecyclerOptions<Candidate>) :
         holder.txtName.text = model.name
         holder.txtRole.text = model.role
 
+//        loading image
          val storRef: StorageReference =
             FirebaseStorage.getInstance().getReferenceFromUrl(model.image_url)
         Glide.with(holder.imgCandidate.context).load(storRef).into(holder.imgCandidate)
