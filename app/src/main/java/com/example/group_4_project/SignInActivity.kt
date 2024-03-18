@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
-class SignInActivity: AppCompatActivity() {
+class SignInActivity : AppCompatActivity() {
 
     private lateinit var emailEditText: EditText
     private lateinit var passEditText: EditText
@@ -19,9 +19,9 @@ class SignInActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)
 
-         firebaseAuth = FirebaseAuth.getInstance()
-         emailEditText = findViewById(R.id.txtEmail) // Find email EditText by ID
-         passEditText = findViewById(R.id.txtPassword) // Find password EditText by ID
+        firebaseAuth = FirebaseAuth.getInstance()
+        emailEditText = findViewById(R.id.txtEmail)
+        passEditText = findViewById(R.id.txtPassword)
 
         val signUpTextView = findViewById<TextView>(R.id.txtSignUp)
         signUpTextView.setOnClickListener {
@@ -42,24 +42,21 @@ class SignInActivity: AppCompatActivity() {
 
             if (!email.matches(nonEmptyPattern) || !pass.matches(nonEmptyPattern)) {
                 Toast.makeText(this, "All fields are required!", Toast.LENGTH_SHORT).show()
-            }else if(!email.matches(emailPattern)){
-                 Toast.makeText(this, "Enter valid email!", Toast.LENGTH_SHORT).show()
-            }
-            else if (!pass.matches(passwordPattern)) {
+            } else if (!email.matches(emailPattern)) {
+                Toast.makeText(this, "Enter valid email!", Toast.LENGTH_SHORT).show()
+            } else if (!pass.matches(passwordPattern)) {
                 Toast.makeText(
                     this,
                     "Password must contain at least one digit, one lowercase and uppercase letter, one special character, and have minimum 8 characters!",
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                // Sign in with email and password
+//                validate sign in
                 firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        // Sign-in successful
                         val intent = Intent(this, IntroActivity::class.java)
                         startActivity(intent)
                     } else {
-                        // Sign-in failed, display error message
                         Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -70,8 +67,8 @@ class SignInActivity: AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        // Check if user is already signed in, if yes, navigate to IntroActivity
-        if(firebaseAuth.currentUser != null){
+        // Validating user and redirect activity
+        if (firebaseAuth.currentUser != null) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

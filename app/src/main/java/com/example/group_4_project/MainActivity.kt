@@ -12,7 +12,6 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivity : AppCompatActivity() {
-    //  binding data to the RecyclerView
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CandidateAdapter
     private lateinit var logoutButton: Button
@@ -23,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Setup Toolbar
         val toolbar: MaterialToolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
 
@@ -45,6 +43,7 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, CandidateActivity::class.java))
                     true
                 }
+
                 else -> false
             }
         }
@@ -56,5 +55,5 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this@MainActivity, "Logged out successfully", Toast.LENGTH_SHORT).show()
         val intent = Intent(this, SignInActivity::class.java)
         startActivity(intent)
-     }
+    }
 }

@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class IntroActivity : AppCompatActivity() {
-    private val SPLASH_TIME_OUT: Long = 2000 // 2 seconds
+    private val SPLASH_TIME_OUT: Long = 2000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,24 +28,21 @@ class IntroActivity : AppCompatActivity() {
     }
 
     private fun animateText(imageView: ImageView) {
-        // Fade in animation
         val fadeIn = AlphaAnimation(0.0f, 1.0f).apply {
-            duration = 1500 // 1.5 seconds
-            fillAfter = true // Keep the effect after animation ends
+            duration = 1500
+            fillAfter = true
         }
 
-        // Slide up animation
         val slideUp = TranslateAnimation(
             Animation.RELATIVE_TO_SELF, 0f,
             Animation.RELATIVE_TO_SELF, 0f,
             Animation.RELATIVE_TO_SELF, 1f,
             Animation.RELATIVE_TO_SELF, 0f
         ).apply {
-            duration = 1500 // 1.5 seconds
+            duration = 1500
             fillAfter = true
         }
 
-        // Combine animations in an AnimationSet
         val animationSet = AnimationSet(true).apply {
             addAnimation(fadeIn)
             addAnimation(slideUp)
