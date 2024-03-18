@@ -17,7 +17,7 @@ class CandidateActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var logoutButton: Button
     private lateinit var auth: FirebaseAuth
-    private var rView: RecyclerView? = null;
+    private var rView: RecyclerView? = null
     private var adapter: CandidateAdapter? = null
 
 
@@ -27,16 +27,20 @@ class CandidateActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+//        get instance of firebase
         val query = FirebaseDatabase.getInstance().reference.child("candidates")
-        val options = FirebaseRecyclerOptions.Builder<Candidate>().setQuery(query, Candidate::class.java).build()
+        val options =
+            FirebaseRecyclerOptions.Builder<Candidate>().setQuery(query, Candidate::class.java)
+                .build()
         adapter = CandidateAdapter(options)
 
+//populating recycle view
         rView = findViewById(R.id.rView)
-        rView?.layoutManager = LinearLayoutManager(this, )
+        rView?.layoutManager = LinearLayoutManager(this)
         rView?.adapter = adapter
 
         auth = FirebaseAuth.getInstance()
-        logoutButton = findViewById(R.id.btnLogout);
+        logoutButton = findViewById(R.id.btnLogout)
         logoutButton.setOnClickListener {
             signOut()
         }
@@ -53,6 +57,7 @@ class CandidateActivity : AppCompatActivity() {
                     startActivity(Intent(this, CandidateActivity::class.java))
                     true
                 }
+
                 else -> false
             }
         }
@@ -62,6 +67,7 @@ class CandidateActivity : AppCompatActivity() {
         super.onStart()
         adapter?.startListening()
     }
+
     private fun signOut() {
         auth.signOut()
         Toast.makeText(this@CandidateActivity, "Logged out successfully", Toast.LENGTH_SHORT).show()

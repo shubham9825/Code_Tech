@@ -1,4 +1,5 @@
 package com.example.group_4_project
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -34,10 +35,12 @@ class DashboardActivity : AppCompatActivity() {
                     startActivity(Intent(this, CandidateActivity::class.java))
                     true
                 }
+
                 else -> false
             }
         }
     }
+
     private fun signOut() {
         auth.signOut()
         Toast.makeText(this@DashboardActivity, "Logged out successfully", Toast.LENGTH_SHORT).show()
